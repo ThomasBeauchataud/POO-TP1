@@ -33,13 +33,12 @@ class Client implements ClientInterface{
             Socket socket = new Socket(this.ipAddress, this.port);
             OutputStream outputStream = socket.getOutputStream();
             ObjectOutput objectOutput = new ObjectOutputStream(outputStream);
-            objectOutput.writeObject(command);
+            objectOutput.writeObject(command);            
+            objectOutput.flush();
 
             InputStream inputStream = socket.getInputStream();
             ObjectInput inputObject = new ObjectInputStream(inputStream);
             Command answer = (Command) inputObject.readObject();
-            
-            objectOutput.flush();
             objectOutput.close();
             
             return answer;

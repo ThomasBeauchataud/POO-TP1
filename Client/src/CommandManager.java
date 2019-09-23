@@ -37,8 +37,6 @@ public class CommandManager implements CommandManagerInterface {
         for (String value : command.getValue()) {
             returnValue = returnValue + value + "\n";
         }
-        
-        System.out.println("Client returnValue: " + returnValue);
 
         return returnValue;
     }
