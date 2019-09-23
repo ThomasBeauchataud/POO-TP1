@@ -12,6 +12,7 @@ public class ReadingHandler extends ActionHandler implements ReadingHandlerInter
 
     @Override
     public String treat(String instanceName, String attribute) {
+
         log("Treating a reading");
         Object object = persistingHandler.get(instanceName);
         Class objectClass = object.getClass();

@@ -12,6 +12,7 @@ public class WritingHandler extends ActionHandler implements WritingHandlerInter
 
     @Override
     public String treat(String instanceName, String attribute, Object value) {
+
         log("Treating a writing");
         Object object = this.persistingHandler.get(instanceName);
         Class objectClass = object.getClass();

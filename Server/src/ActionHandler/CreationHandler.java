@@ -12,6 +12,7 @@ public class CreationHandler extends ActionHandler implements CreationHandlerInt
 
     @Override
     public String treat(Class objectClass, String identification) {
+
         log("Treating a creation");
         try {
             this.persistingHandler.persist((Serializable)objectClass.newInstance(), identification);

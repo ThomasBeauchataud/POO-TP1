@@ -32,26 +32,8 @@ public class CompilationHandler extends ActionHandler implements CompilationHand
         		compilerArgs += ",";
         	}
         }
-       
 
         compiler.run(null, null, null, compilerArgs);
-
-        /*String[] sourcePaths = sourcePath.split(" ");
-
-        int lastSlashIndex = sourcePaths[0].lastIndexOf("/") + 1;
-        String sourcePathOption = sourcePaths[0].substring(0, lastSlashIndex);
-
-        List<String> options = new ArrayList<String>();
-        options.add("-sourcepath \"" + System.getProperty("user.dir") + sourcePathOption.replace("/", "\\").substring(1) + "\"");
-
-        List<String> classes = new ArrayList<>();
-
-        for (String javaClass: sourcePaths) {
-            classes.add(javaClass.substring(lastSlashIndex));
-        }
-
-        compiler.getTask(null, null, null, options, classes, null).call();
-        */
 
         return "Success compilation of files " + sourcePaths;
     }

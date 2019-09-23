@@ -11,6 +11,7 @@ public class LoadingHandler extends ActionHandler implements LoadingHandlerInter
 
     @Override
     public String treat(String name) {
+
         log("Treating a loading");
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
         try {
