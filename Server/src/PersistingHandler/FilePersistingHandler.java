@@ -22,6 +22,7 @@ public class FilePersistingHandler implements PersistingHandlerInterface {
             objectOutput.writeObject(object);
             objectOutput.close();
         } catch (Exception e) {
+        	System.err.println(e.getMessage());
             System.out.println("Impossible to save " + name + " in a file");
         }
     }

@@ -34,14 +34,17 @@ class Client implements ClientInterface{
             OutputStream outputStream = socket.getOutputStream();
             ObjectOutput objectOutput = new ObjectOutputStream(outputStream);
             objectOutput.writeObject(command);
-            objectOutput.flush();
-            objectOutput.close();
 
             InputStream inputStream = socket.getInputStream();
             ObjectInput inputObject = new ObjectInputStream(inputStream);
-            return (Command) inputObject.readObject();
+            Command answer = (Command) inputObject.readObject();
+            
+            objectOutput.flush();
+            objectOutput.close();
+            
+            return answer;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             System.exit(1);
         }
 

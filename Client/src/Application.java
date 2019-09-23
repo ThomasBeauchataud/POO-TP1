@@ -35,6 +35,7 @@ class Application {
             bufferedReader.close();
 
             Command returnCommand = this.treatCommand(command);
+            
             String returnValue = this.commandManager.explodeCommand(returnCommand);
 
             persistingHandler.persist(returnValue, outputFile);
