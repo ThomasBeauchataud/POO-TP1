@@ -37,6 +37,9 @@ public class Server {
                     System.out.println("Command created");
 
                     Command returnCommand = application.treatCommand(command);
+                    OutputStream outputStream = clientSocket.getOutputStream();
+                    ObjectOutput outputObject = new ObjectOutputStream(outputStream);
+                    outputObject.writeObject(returnCommand);
 
                     System.out.println("Closing connection");
 
