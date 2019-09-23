@@ -38,7 +38,7 @@ public class Server {
 
                     Command returnCommand = application.treatCommand(command);
 
-                    System.out.println("Closing to connection");
+                    System.out.println("Closing connection");
 
                     clientSocket.close();
                 }

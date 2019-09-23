@@ -31,7 +31,7 @@ class Application {
     private void initialize(String inputFile, String outputFile) {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFile));
-            Command command = this.commandManager.creatCommand(bufferedReader);
+            Command command = this.commandManager.createCommand(bufferedReader);
             bufferedReader.close();
 
             Command returnCommand = this.treatCommand(command);
@@ -54,12 +54,12 @@ class Application {
         BufferedReader bufferedReader = null;
         try {
             bufferedReader = new BufferedReader(new FileReader(inputFile));
-            Command next = this.commandManager.creatCommand(bufferedReader);
+            Command next = this.commandManager.createCommand(bufferedReader);
             while (next != null) {
                 System.out.println("\tTreating command " + next + " ...");
                 Object result = this.treatCommand(next);
                 System.out.println("\t\tResult: " + result);
-                next = this.commandManager.creatCommand(bufferedReader);
+                next = this.commandManager.createCommand(bufferedReader);
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());

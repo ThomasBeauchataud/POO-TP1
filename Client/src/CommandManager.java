@@ -11,7 +11,7 @@ public class CommandManager implements CommandManagerInterface {
      * @param bufferedReader BufferedReader
      * @return Command
      */
-    public Command creatCommand(BufferedReader bufferedReader) {
+    public Command createCommand(BufferedReader bufferedReader) {
         Command command = new Command();
         String line;
 

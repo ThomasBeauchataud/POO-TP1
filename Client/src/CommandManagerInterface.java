@@ -12,7 +12,7 @@ public interface CommandManagerInterface {
      * @param bufferedReader BufferedReader
      * @return Command
      */
-    Command creatCommand(BufferedReader bufferedReader);
+    Command createCommand(BufferedReader bufferedReader);
 
     /**
      * Return a the value of the command

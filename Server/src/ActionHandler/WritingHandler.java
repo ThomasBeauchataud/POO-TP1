@@ -6,30 +6,30 @@ import java.lang.reflect.Method;
 
 public class WritingHandler extends ActionHandler implements WritingHandlerInterface {
 
-    public WritingHandler(PersistingHandlerInterface persistingHandler) {
-        super(persistingHandler);
-    }
+	public WritingHandler(PersistingHandlerInterface persistingHandler) {
+		super(persistingHandler);
+	}
 
-    @Override
-    public String treat(String instanceName, String attribute, Object value) {
+	@Override
+	public String treat(String instanceName, String attribute, Object value) {
 
-        log("Treating a writing");
-        attribute = this.upFirstLetter(attribute);
-        Object object = this.persistingHandler.get(instanceName);
-        Class objectClass = object.getClass();
-        try {
-            Method objectMethod = objectClass.getMethod("set" + attribute);
-            return (String)objectMethod.invoke(object, value);
-        } catch (Exception e) {
-            log(e.getMessage());
-            return "Impossible to write the attribute " + attribute + " of " + instanceName + " : " + e.getMessage();
-        }
-    }
+		log("Treating a writing");
+		attribute = this.upFirstLetter(attribute);
+		Object object = this.persistingHandler.get(instanceName);
+		Class objectClass = object.getClass();
+		try {
+			Method objectMethod = objectClass.getMethod("set" + attribute);
+			return (String) objectMethod.invoke(object, value);
+		} catch (Exception e) {
+			log(e.getMessage());
+			return "Impossible to write the attribute " + attribute + " of " + instanceName + " : " + e.getMessage();
+		}
+	}
 
-    private String upFirstLetter(String string) {
-        char[] attributeArray = string.toCharArray();
-        attributeArray[0] = Character.toUpperCase(attributeArray[0]);
-        return new String(attributeArray);
-    }
+	private String upFirstLetter(String string) {
+		char[] attributeArray = string.toCharArray();
+		attributeArray[0] = Character.toUpperCase(attributeArray[0]);
+		return new String(attributeArray);
+	}
 
 }
