@@ -17,14 +17,24 @@ public class CompilationHandler extends ActionHandler implements CompilationHand
     @Override
     public String treat(String sourcePaths) {
 
-        System.out.println(sourcePath);
+        System.out.println(sourcePaths);
         log("Treating a compilation");
 
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+        
+        String compilerArgs = "";
 
-        ArrayList<String> sourcePathsArray = sourcePaths.split(",");
+        String[] sourcePathsArray = sourcePaths.split(",");
+        for(int i = 0 ; i < sourcePathsArray.length ; i++) {
+        	sourcePathsArray[i] = System.getProperty("user.dir") + "/" + sourcePathsArray[i];
+        	compilerArgs += sourcePathsArray[i];
+        	if(i > sourcePathsArray.length - 2) {
+        		compilerArgs += ",";
+        	}
+        }
+       
 
-        compiler.run(null, null, null, sourcePath);
+        compiler.run(null, null, null, compilerArgs);
 
         /*String[] sourcePaths = sourcePath.split(" ");
 
@@ -43,7 +53,7 @@ public class CompilationHandler extends ActionHandler implements CompilationHand
         compiler.getTask(null, null, null, options, classes, null).call();
         */
 
-        return "Success compilation of the file " + sourcePath;
+        return "Success compilation of files " + sourcePaths;
     }
 
 }

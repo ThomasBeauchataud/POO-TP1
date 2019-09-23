@@ -52,9 +52,11 @@ public class Server {
 
     /**
      * Execute the server program
-     * @param args String[]     */
+     * @param args String[]
+     */
     public static void main(String[] args) {
         Server server = new Server();
         server.run();
     }
+
 }
