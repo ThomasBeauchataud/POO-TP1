@@ -14,9 +14,7 @@ public class ReadingHandler extends ActionHandler implements ReadingHandlerInter
     public String treat(String instanceName, String attribute) {
 
         log("Treating a reading");
-        char[] attributeArray = attribute.toCharArray();
-        attributeArray[0] = Character.toUpperCase(attributeArray[0]);
-        attribute = new String(attributeArray);
+        attribute = this.upFirstLetter(attribute);
         Object object = persistingHandler.get(instanceName);
         Class objectClass = object.getClass();
         try {
@@ -26,5 +24,11 @@ public class ReadingHandler extends ActionHandler implements ReadingHandlerInter
             log(e.getMessage());
             return "Impossible to read the attribute " + attribute + " of " + instanceName + " : " + e.getMessage();
         }
+    }
+
+    private String upFirstLetter(String string) {
+        char[] attributeArray = string.toCharArray();
+        attributeArray[0] = Character.toUpperCase(attributeArray[0]);
+        return new String(attributeArray);
     }
 }

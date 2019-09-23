@@ -1,3 +1,5 @@
+package unit;
+
 import ActionHandler.ReadingHandler;
 import ActionHandler.ReadingHandlerInterface;
 import ActionHandler.WritingHandler;
@@ -40,7 +42,7 @@ public class WritingHandlerTest {
                     testResult.append(writingHandler.toString()).append(" failed the test \n");
                 }
             } catch (Exception e) {
-                testResult.append(writingHandler.toString()).append("encountered an error : ").append(e.getMessage()).append("\n");
+                testResult.append(writingHandler.toString()).append(" encountered an error : ").append(e.getMessage()).append("\n");
             }
         }
         return testResult.toString();

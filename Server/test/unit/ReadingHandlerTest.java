@@ -1,3 +1,5 @@
+package unit;
+
 import ActionHandler.ReadingHandler;
 import ActionHandler.ReadingHandlerInterface;
 import PersistingHandler.FilePersistingHandler;
@@ -39,7 +41,7 @@ public class ReadingHandlerTest {
                     testResult.append(readingHandler.toString()).append(" failed the test \n");
                 }
             } catch (Exception e) {
-                testResult.append(readingHandler.toString()).append("encountered an error : ").append(e.getMessage()).append("\n");
+                testResult.append(readingHandler.toString()).append(" encountered an error : ").append(e.getMessage()).append("\n");
             }
         }
         return testResult.toString();

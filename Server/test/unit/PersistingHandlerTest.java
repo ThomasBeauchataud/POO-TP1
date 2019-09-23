@@ -1,3 +1,5 @@
+package unit;
+
 import PersistingHandler.FilePersistingHandler;
 import PersistingHandler.PersistingHandlerInterface;
 
@@ -30,7 +32,7 @@ class PersistingHandlerTest {
                     testResult.append(persistingHandler.toString()).append(" failed the class test \n");
                 }
             } catch (Exception e) {
-                testResult.append(persistingHandler.toString()).append("encountered an error : ").append(e.getMessage()).append("\n");
+                testResult.append(persistingHandler.toString()).append(" encountered an error : ").append(e.getMessage()).append("\n");
             }
         }
         return testResult.toString();
