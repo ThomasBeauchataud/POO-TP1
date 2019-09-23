@@ -1,0 +1,12 @@
+null
+Success loading of ca.uqac.registraire.Cours
+Success while creating a new instance : 8inf853
+Impossible to write the attribute Titre of 8inf853 : ca.uqac.registraire.Cours.setTitre()
+null
+Success while creating a new instance : 8inf843
+Impossible to write the attribute Titre of 8inf843 : ca.uqac.registraire.Cours.setTitre()
+Success loading of ca.uqac.registraire.Etudiant
+Success while creating a new instance : mathilde
+Impossible to write the attribute Nom of mathilde : ca.uqac.registraire.Etudiant.setNom()
+Success while creating a new instance : raymond
+Impossible to write the attribute Nom of raymond : ca.uqac.registraire.Etudiant.setNom()

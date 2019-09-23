@@ -4,6 +4,5 @@ production
 bin
 .classpath
 .project
-persisting
 .class
 /.metadata/

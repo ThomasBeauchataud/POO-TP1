@@ -6,19 +6,14 @@ import java.io.FileWriter;
 
 public class FilePersistingHandler implements PersistingHandlerInterface {
 
-    private final String directory = "persisting/";
+    private final String directory = "persisting\\";
 
     @Override
     public void persist(String content, String reference) {
         try {
-            File file = new File(this.directory + reference);
-
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-            bufferedWriter.write(content);
+            BufferedWriter bufferedWriter;
+        	bufferedWriter = new BufferedWriter(new FileWriter(this.directory + reference));
+        	bufferedWriter.write(content);
             bufferedWriter.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());

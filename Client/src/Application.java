@@ -85,7 +85,7 @@ class Application {
      */
     public static void main(String[] args) {
         Application application = new Application();
-        application.initialize("ressources/commandes.txt", "../ressources/result.txt");
+        application.initialize("ressources/commandes.txt", "result.txt");
     }
 
 }
