@@ -16,8 +16,6 @@ public class CompilationHandler extends ActionHandler implements CompilationHand
 
     @Override
     public String treat(String sourcePaths) {
-
-        System.out.println(sourcePaths);
         log("Treating a compilation");
 
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
