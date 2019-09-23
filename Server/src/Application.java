@@ -48,16 +48,16 @@ public class Application implements ApplicationInterface {
                     String sourcePath = ((String) orderSplit[1]).replace(",", " ");
                     returnCommand.addValue(compilationHandler.treat(sourcePath));
                 }
-                if (action.equals("reading")) {
+                if (action.equals("lecture")) {
                     returnCommand.addValue(readingHandler.treat((String) orderSplit[1], (String) orderSplit[2]));
                 }
-                if (action.equals("writing")) {
+                if (action.equals("ecriture")) {
                     returnCommand.addValue(writingHandler.treat((String) orderSplit[1], (String) orderSplit[2], orderSplit[3]));
                 }
                 if (action.equals("creation")) {
                     returnCommand.addValue(creationHandler.treat(Class.forName((String) orderSplit[1]), (String) orderSplit[2]));
                 }
-                if (action.equals("loading")) {
+                if (action.equals("chargement")) {
                     returnCommand.addValue(loadingHandler.treat((String) orderSplit[1]));
                 }
             } catch (Exception e) {
