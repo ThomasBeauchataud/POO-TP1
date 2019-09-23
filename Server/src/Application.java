@@ -55,14 +55,14 @@ public class Application implements ApplicationInterface {
                     returnCommand.addValue(writingHandler.treat((String) orderSplit[1], (String) orderSplit[2], orderSplit[3]));
                 }
                 if (action.equals("creation")) {
-                    returnCommand.addValue(creationHandler.treat((Class) orderSplit[1], (String) orderSplit[2]));
+                    returnCommand.addValue(creationHandler.treat(Class.forName((String) orderSplit[1]), (String) orderSplit[2]));
                 }
                 if (action.equals("loading")) {
                     returnCommand.addValue(loadingHandler.treat((String) orderSplit[1]));
                 }
             } catch (Exception e) {
                 log(e.getMessage());
-                return returnCommand;
+                returnCommand.addValue(e.getMessage());
             }
         }
         return returnCommand;
