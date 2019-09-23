@@ -15,7 +15,7 @@ public class FilePersistingHandler implements PersistingHandlerInterface {
      */
     public void persist(Serializable object, String name) {
         try {
-            FileOutputStream file = new FileOutputStream(name);
+            FileOutputStream file = new FileOutputStream("persisting/" + name);
             ObjectOutputStream objectOutput = new ObjectOutputStream(file);
             objectOutput.writeObject(object);
             objectOutput.close();

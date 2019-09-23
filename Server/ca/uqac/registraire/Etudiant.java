@@ -1,5 +1,7 @@
 package ca.uqac.registraire;
 import java.util.*;
+import java.io.Serializable;
+
 /**
  * Title:        Classes for TP1
  * Description:
@@ -8,8 +10,7 @@ import java.util.*;
  * @author Hamid Mcheick et Hafedh Mili
  * @version 1.0
  */
-
-public class Etudiant {
+public class Etudiant implements Serializable {
 
   private String nom;
 

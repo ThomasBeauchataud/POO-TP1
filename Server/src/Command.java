@@ -7,14 +7,7 @@ import java.util.ArrayList;
  */
 class Command implements Serializable {
 
-    /**
-     * @var value ArrayList<String>
-     */
     private ArrayList<String> value;
-
-    /**
-     * @var separator String
-     */
     private String separator;
 
     /**
