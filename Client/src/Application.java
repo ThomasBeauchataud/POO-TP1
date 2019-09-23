@@ -43,6 +43,8 @@ class Application {
             System.out.println(e.getMessage());
             System.exit(1);
         }
+        
+        System.out.println("Program succesfully completed.");
     }
 
     /**
