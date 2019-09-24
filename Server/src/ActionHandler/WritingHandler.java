@@ -16,15 +16,18 @@ public class WritingHandler extends ActionHandler implements WritingHandlerInter
 		log("Treating a writing");
 		attribute = this.upFirstLetter(attribute);
 		Object object = this.persistingHandler.get(instanceName);
-		Class objectClass = object.getClass();
+
+		try {
+		Class<?> objectClass = Class.forName(object.getClass().getName());
 		
 		// We're setting an attribute, so the length of the array can be one.
 		Class[] parameters = new Class[1];
 		parameters[0] = value.getClass();
 		
-		try {
+
 			Method objectMethod = objectClass.getMethod("set" + attribute, parameters);
 			objectMethod.invoke(object, value);
+			//todo persist the new element
 			return "Success when writing " + value + " in attribute " + attribute + " of instance " + instanceName;
 		} catch (Exception e) {
 			log(e.getMessage());

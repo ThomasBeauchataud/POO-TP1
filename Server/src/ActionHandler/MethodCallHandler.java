@@ -16,7 +16,9 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 	public String treat(String instanceName, String methodName, Object[] parameters) {
 		log("Treating a method call");
 		Object object = this.persistingHandler.get(instanceName);
-		Class objectClass = object.getClass();
+
+		try {
+		Class<?> objectClass = Class.forName(object.getClass().getName());
 
 		Class[] parametersTypes = new Class[parameters.length];
 
@@ -24,7 +26,7 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 			parametersTypes[i] = parameters[i].getClass();
 		}
 
-		try {
+
 			Method objectMethod = objectClass.getMethod(methodName, parametersTypes);
 			Object result = objectMethod.invoke(object, parameters);
 			return "Success when calling method " + methodName + " on instance " + instanceName + " with parameters "
@@ -47,10 +49,7 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 			if(paramsSplit[i].indexOf(':') != -1) {
 				String[] paramSplit = paramsSplit[i].split(":");
 				if(paramSplit[0].equals("float")) {
-					output[i] = Float.valueOf(paramSplit[1]).floatValue();
-				}
-				if(paramSplit[0].equals("float")) {
-					output[i] = Float.valueOf(paramSplit[1]).floatValue();
+					output[i] = Float.valueOf(paramSplit[1]);
 				}
 			}
 			if(paramsSplit[i].indexOf('(') != -1 && paramsSplit[i].indexOf(')') != -1) {
