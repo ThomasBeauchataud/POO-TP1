@@ -50,7 +50,7 @@ public class FunctionHandler extends ActionHandler implements FunctionHandlerInt
 				}
 			}
 			if(paramsSplit[i].indexOf('(') != -1 && paramsSplit[i].indexOf(')') != -1) {
-				String name = paramsSplit[i].substring(paramsSplit[i].indexOf('('), paramsSplit[i].indexOf(')'));
+				String name = paramsSplit[i].substring(paramsSplit[i].indexOf('(')+1, paramsSplit[i].indexOf(')'));
 				output[i] = this.persistingHandler.get(name);
 			}
 		}
