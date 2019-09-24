@@ -1,12 +1,25 @@
 null
 Success loading of ca.uqac.registraire.Cours
 Success while creating a new instance : 8inf853
-Impossible to write the attribute Titre of 8inf853 : ca.uqac.registraire.Cours.setTitre()
+Success when writing Architecture des applications in attribute Titre of instance 8inf853
 null
 Success while creating a new instance : 8inf843
-Impossible to write the attribute Titre of 8inf843 : ca.uqac.registraire.Cours.setTitre()
+Success when writing Systemes repartis in attribute Titre of instance 8inf843
 Success loading of ca.uqac.registraire.Etudiant
 Success while creating a new instance : mathilde
-Impossible to write the attribute Nom of mathilde : ca.uqac.registraire.Etudiant.setNom()
+Success when writing Mathilde Boivin in attribute Nom of instance mathilde
 Success while creating a new instance : raymond
-Impossible to write the attribute Nom of raymond : ca.uqac.registraire.Etudiant.setNom()
+Success when writing Raymond Sauve in attribute Nom of instance raymond
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null

@@ -2,12 +2,13 @@ package ActionHandler;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.List;
 
 import PersistingHandler.PersistingHandlerInterface;
 
-public class MethodCallHandler extends ActionHandler implements MethodCallHandlerInterface {
+public class FunctionHandler extends ActionHandler implements FunctionHandlerInterface {
 
-	public MethodCallHandler(PersistingHandlerInterface persistingHandler) {
+	public FunctionHandler(PersistingHandlerInterface persistingHandler) {
 		super(persistingHandler);
 	}
 
@@ -33,4 +34,26 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 		}
 	}
 
+	@Override
+	public Object[] formatParameters(List<Object> objects) {
+		if(objects.size() <= 3) {
+			return null;
+		}
+		String params = (String) objects.get(3);
+		String[] paramsSplit = params.split(",");
+		Object[] output = new Object[paramsSplit.length];
+		for(int i = 0 ; i < paramsSplit.length ; i++) {
+			if(paramsSplit[i].indexOf(':') != -1) {
+				String[] paramSplit = paramsSplit[i].split(":");
+				if(paramSplit[0].equals("float")) {
+					output[i] = Float.parseFloat(paramSplit[1]);
+				}
+			}
+			if(paramsSplit[i].indexOf('(') != -1 && paramsSplit[i].indexOf(')') != -1) {
+				String name = paramsSplit[i].substring(paramsSplit[i].indexOf('('), paramsSplit[i].indexOf(')'));
+				output[i] = this.persistingHandler.get(name);
+			}
+		}
+		return output;
+	}
 }

@@ -5,6 +5,7 @@ import PersistingHandler.PersistingHandlerInterface;
 import java.lang.Class;
 import java.lang.Object;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Thomas Beauchataud & Francois Monitigny
@@ -17,6 +18,7 @@ public class Application implements ApplicationInterface {
     private LoadingHandlerInterface loadingHandler;
     private ReadingHandlerInterface readingHandler;
     private WritingHandlerInterface writingHandler;
+    private FunctionHandlerInterface functionHandler;
 
     /**
      * Constructor Application
@@ -28,6 +30,7 @@ public class Application implements ApplicationInterface {
         loadingHandler = new LoadingHandler(persistingHandler);
         readingHandler = new ReadingHandler(persistingHandler);
         writingHandler = new WritingHandler(persistingHandler);
+        functionHandler = new FunctionHandler(persistingHandler);
     }
 
     /**
@@ -59,6 +62,9 @@ public class Application implements ApplicationInterface {
                 }
                 if (action.equals("chargement")) {
                     returnCommand.addValue(loadingHandler.treat((String) orderSplit[1]));
+                }
+                if(action.equals("fonction")) {
+                    returnCommand.addValue(functionHandler.treat((String) orderSplit[1], (String)orderSplit[2], functionHandler.formatParameters(Arrays.asList(orderSplit))));
                 }
             } catch (Exception e) {
                 log(e.getMessage());
