@@ -2,7 +2,7 @@ package ActionHandler;
 
 import java.util.List;
 
-public interface FunctionHandlerInterface {
+public interface MethodCallHandlerInterface {
 
 	/**
      * Treat the call of a method with all its parameters and return the result to send through the socket

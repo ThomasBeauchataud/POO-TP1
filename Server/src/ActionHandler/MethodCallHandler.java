@@ -6,11 +6,9 @@ import java.util.List;
 
 import PersistingHandler.PersistingHandlerInterface;
 
-import static java.lang.Float.*;
+public class MethodCallHandler extends ActionHandler implements MethodCallHandlerInterface {
 
-public class FunctionHandler extends ActionHandler implements FunctionHandlerInterface {
-
-	public FunctionHandler(PersistingHandlerInterface persistingHandler) {
+	public MethodCallHandler(PersistingHandlerInterface persistingHandler) {
 		super(persistingHandler);
 	}
 
@@ -48,9 +46,7 @@ public class FunctionHandler extends ActionHandler implements FunctionHandlerInt
 			if(paramsSplit[i].indexOf(':') != -1) {
 				String[] paramSplit = paramsSplit[i].split(":");
 				if(paramSplit[0].equals("float")) {
-					Float f1 = new Float(paramSplit[1]);
-					float f2 = f1.floatValue();
-					output[i] = f2;
+					output[i] = Float.parseFloat(paramSplit[1]);
 				}
 			}
 			if(paramsSplit[i].indexOf('(') != -1 && paramsSplit[i].indexOf(')') != -1) {
