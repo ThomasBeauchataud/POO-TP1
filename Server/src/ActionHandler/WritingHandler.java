@@ -24,6 +24,7 @@ public class WritingHandler extends ActionHandler implements WritingHandlerInter
 		
 		try {
 			Method objectMethod = objectClass.getMethod("set" + attribute, parameters);
+			objectMethod.invoke(object, value);
 			return "Success when writing " + value + " in attribute " + attribute + " of instance " + instanceName;
 		} catch (Exception e) {
 			log(e.getMessage());
