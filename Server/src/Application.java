@@ -18,7 +18,7 @@ public class Application implements ApplicationInterface {
     private LoadingHandlerInterface loadingHandler;
     private ReadingHandlerInterface readingHandler;
     private WritingHandlerInterface writingHandler;
-    private FunctionHandlerInterface functionHandler;
+    private MethodCallHandlerInterface functionHandler;
 
     /**
      * Constructor Application
@@ -30,7 +30,7 @@ public class Application implements ApplicationInterface {
         loadingHandler = new LoadingHandler(persistingHandler);
         readingHandler = new ReadingHandler(persistingHandler);
         writingHandler = new WritingHandler(persistingHandler);
-        functionHandler = new FunctionHandler(persistingHandler);
+        functionHandler = new MethodCallHandler(persistingHandler);
     }
 
     /**
