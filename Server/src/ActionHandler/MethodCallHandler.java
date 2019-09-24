@@ -26,8 +26,9 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 
 		try {
 			Method objectMethod = objectClass.getMethod(methodName, parametersTypes);
+			Object result = objectMethod.invoke(object, parameters);
 			return "Success when calling method " + methodName + " on instance " + instanceName + " with parameters "
-					+ Arrays.toString(parameters);
+					+ Arrays.toString(parameters) + "; result: " + result;
 		} catch (Exception e) {
 			log(e.getMessage());
 			return "Impossible to call method " + methodName + " for " + instanceName + " : " + e.getMessage();
