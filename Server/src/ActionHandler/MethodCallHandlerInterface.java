@@ -5,7 +5,7 @@ import java.util.List;
 public interface MethodCallHandlerInterface {
 
 	/**
-     * Treat the call of a method with all its parameters and return the result to send through the socket
+     * Treat the call of a method with all his parameters and return the result to send through the socket
 	 * @param objectName String
 	 * @param methodName String
 	 * @param parameters Object[]

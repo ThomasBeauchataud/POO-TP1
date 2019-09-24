@@ -36,7 +36,7 @@ public class CompilationHandler extends ActionHandler implements CompilationHand
 
             return "Success compilation of files " + sourcePaths;
         } catch (Exception e) {
-            return "The class " + sourcePaths + "is/are already compiled";
+            return "The class " + sourcePaths + " is/are already compiled";
         }
     }
 

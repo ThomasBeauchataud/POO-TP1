@@ -1,5 +1,6 @@
 package ActionHandler;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
@@ -20,14 +21,20 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 		try {
 			Class<?> objectClass = Class.forName(object.getClass().getName());
 
-			Class[] parametersTypes = new Class[parameters.length];
+			Class[] parametersTypes = null;
+			if(parameters != null) {
+				parametersTypes = new Class[parameters.length];
 
-			for (int i = 0; i < parameters.length; i++) {
-				parametersTypes[i] = parameters[i].getClass();
+				for (int i = 0; i < parameters.length; i++) {
+					parametersTypes[i] = parameters[i].getClass();
+				}
 			}
 
 			Method objectMethod = objectClass.getMethod(methodName, parametersTypes);
 			Object result = objectMethod.invoke(object, parameters);
+
+			this.persistingHandler.persist((Serializable) object, instanceName);
+
 			return "Success when calling method " + methodName + " on instance " + instanceName + " with parameters "
 					+ Arrays.toString(parameters) + "; result: " + result;
 		} catch (Exception e) {

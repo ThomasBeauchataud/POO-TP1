@@ -28,7 +28,7 @@ public class WritingHandler extends ActionHandler implements WritingHandlerInter
 			Method objectMethod = objectClass.getMethod("set" + attribute, parameters);
 			objectMethod.invoke(object, value);
 
-			this.persistingHandler.persist((Serializable) objectClass.newInstance(), instanceName);
+			this.persistingHandler.persist((Serializable) object, instanceName);
 
 			return "Success when writing " + value + " in attribute " + attribute + " of instance " + instanceName;
 		} catch (Exception e) {
