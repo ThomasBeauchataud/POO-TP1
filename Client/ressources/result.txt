@@ -1,0 +1,12 @@
+null
+Success loading of ca.uqac.registraire.Cours
+Success while creating a new instance : 8inf853
+null
+null
+Success while creating a new instance : 8inf843
+null
+Success loading of ca.uqac.registraire.Etudiant
+Success while creating a new instance : mathilde
+null
+Success while creating a new instance : raymond
+null
