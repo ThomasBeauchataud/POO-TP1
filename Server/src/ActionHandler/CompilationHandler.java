@@ -18,22 +18,26 @@ public class CompilationHandler extends ActionHandler implements CompilationHand
     public String treat(String sourcePaths) {
         log("Treating a compilation");
 
-        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-        
-        String compilerArgs = "";
+        try {
+            JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 
-        String[] sourcePathsArray = sourcePaths.split(",");
-        for(int i = 0 ; i < sourcePathsArray.length ; i++) {
-        	sourcePathsArray[i] = System.getProperty("user.dir") + "/" + sourcePathsArray[i];
-        	compilerArgs += sourcePathsArray[i];
-        	if(i > sourcePathsArray.length - 2) {
-        		compilerArgs += ",";
-        	}
+            String compilerArgs = "";
+
+            String[] sourcePathsArray = sourcePaths.split(",");
+            for (int i = 0; i < sourcePathsArray.length; i++) {
+                sourcePathsArray[i] = System.getProperty("user.dir") + "/" + sourcePathsArray[i];
+                compilerArgs += sourcePathsArray[i];
+                if (i > sourcePathsArray.length - 2) {
+                    compilerArgs += ",";
+                }
+            }
+
+            compiler.run(null, null, null, compilerArgs);
+
+            return "Success compilation of files " + sourcePaths;
+        } catch (Exception e) {
+            return "The class " + sourcePaths + "is/are already compiled";
         }
-
-        compiler.run(null, null, null, compilerArgs);
-
-        return "Success compilation of files " + sourcePaths;
     }
 
 }
