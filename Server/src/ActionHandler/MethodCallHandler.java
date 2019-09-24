@@ -49,6 +49,9 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 				if(paramSplit[0].equals("float")) {
 					output[i] = Float.valueOf(paramSplit[1]).floatValue();
 				}
+				if(paramSplit[0].equals("float")) {
+					output[i] = Float.valueOf(paramSplit[1]).floatValue();
+				}
 			}
 			if(paramsSplit[i].indexOf('(') != -1 && paramsSplit[i].indexOf(')') != -1) {
 				String name = paramsSplit[i].substring(paramsSplit[i].indexOf('(')+1, paramsSplit[i].indexOf(')'));
