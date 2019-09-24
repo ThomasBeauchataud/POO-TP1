@@ -10,16 +10,15 @@ Success while creating a new instance : mathilde
 Success when writing Mathilde Boivin in attribute Nom of instance mathilde
 Success while creating a new instance : raymond
 Success when writing Raymond Sauve in attribute Nom of instance raymond
-Impossible to call method getNote for 8inf853 : null
 Success when calling method inscrisDansCours on instance mathilde with parameters [Cours(Titre: Architecture des applications <Mathilde Boivin[0.0] = 0.0 >)]; result: null
-Impossible to call method attributeNote for 8inf853 : ca.uqac.registraire.Cours.attributeNote(ca.uqac.registraire.Etudiant, java.lang.Float)
+Success when calling method attributeNote on instance 8inf853 with parameters [Mathilde Boivin[0.0], 3.7]; result: null
 Impossible to call method getNote for 8inf853 : null
 Success when calling method inscrisDansCours on instance mathilde with parameters [Cours(Titre: Systemes repartis <Mathilde Boivin[0.0] = 0.0 >)]; result: null
-Impossible to call method attributeNote for 8inf843 : ca.uqac.registraire.Cours.attributeNote(ca.uqac.registraire.Etudiant, java.lang.Float)
+Success when calling method attributeNote on instance 8inf843 with parameters [Mathilde Boivin[0.0], 4.0]; result: null
 Success when calling method getMoyenne on instance mathilde with parameters null; result: 0.0
-Success when calling method inscrisDansCours on instance raymond with parameters [Cours(Titre: Architecture des applications <Raymond Sauve[0.0] = 0.0 >)]; result: null
-Success when calling method inscrisDansCours on instance raymond with parameters [Cours(Titre: Systemes repartis <Raymond Sauve[0.0] = 0.0 >)]; result: null
-Impossible to call method attributeNote for 8inf853 : ca.uqac.registraire.Cours.attributeNote(ca.uqac.registraire.Etudiant, java.lang.Float)
-Impossible to call method attributeNote for 8inf843 : ca.uqac.registraire.Cours.attributeNote(ca.uqac.registraire.Etudiant, java.lang.Float)
+Success when calling method inscrisDansCours on instance raymond with parameters [Cours(Titre: Architecture des applications <Raymond Sauve[0.0] = 0.0 , Mathilde Boivin[0.0] = 3.7 >)]; result: null
+Success when calling method inscrisDansCours on instance raymond with parameters [Cours(Titre: Systemes repartis <Raymond Sauve[0.0] = 0.0 , Mathilde Boivin[0.0] = 4.0 >)]; result: null
+Success when calling method attributeNote on instance 8inf853 with parameters [Raymond Sauve[0.0], 3.0]; result: null
+Success when calling method attributeNote on instance 8inf843 with parameters [Raymond Sauve[0.0], 2.7]; result: null
 Success when calling method getMoyenne on instance mathilde with parameters null; result: 0.0
-Success when calling method toString on instance 8inf853 with parameters null; result: Cours(Titre: Architecture des applications <>)
+Success when calling method toString on instance 8inf853 with parameters null; result: Cours(Titre: Architecture des applications <Raymond Sauve[0.0] = 3.0 , Mathilde Boivin[0.0] = 3.7 >)

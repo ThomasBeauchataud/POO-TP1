@@ -26,7 +26,11 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 				parametersTypes = new Class[parameters.length];
 
 				for (int i = 0; i < parameters.length; i++) {
-					parametersTypes[i] = parameters[i].getClass();
+					if(parameters[i].getClass() == Float.class) {
+						parametersTypes[i] = float.class;
+					} else {
+						parametersTypes[i] = Class.forName(parameters[i].getClass().getName());
+					}
 				}
 			}
 
