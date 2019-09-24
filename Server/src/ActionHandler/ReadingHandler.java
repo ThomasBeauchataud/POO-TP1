@@ -16,8 +16,9 @@ public class ReadingHandler extends ActionHandler implements ReadingHandlerInter
 		log("Treating a reading");
 		attribute = this.upFirstLetter(attribute);
 		Object object = persistingHandler.get(instanceName);
-		Class objectClass = object.getClass();
 		try {
+			Class<?> objectClass = Class.forName(object.getClass().getName());
+			
 			Method objectMethod = objectClass.getMethod("get" + attribute);
 			return (String) objectMethod.invoke(object);
 		} catch (Exception e) {

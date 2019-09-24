@@ -2,6 +2,7 @@ package ActionHandler;
 
 import PersistingHandler.PersistingHandlerInterface;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 
 public class WritingHandler extends ActionHandler implements WritingHandlerInterface {
@@ -18,16 +19,17 @@ public class WritingHandler extends ActionHandler implements WritingHandlerInter
 		Object object = this.persistingHandler.get(instanceName);
 
 		try {
-		Class<?> objectClass = Class.forName(object.getClass().getName());
-		
-		// We're setting an attribute, so the length of the array can be one.
-		Class[] parameters = new Class[1];
-		parameters[0] = value.getClass();
-		
+			Class<?> objectClass = Class.forName(object.getClass().getName());
+
+			// We're setting an attribute, so the length of the array can be one.
+			Class[] parameters = new Class[1];
+			parameters[0] = value.getClass();
 
 			Method objectMethod = objectClass.getMethod("set" + attribute, parameters);
 			objectMethod.invoke(object, value);
-			//todo persist the new element
+
+			this.persistingHandler.persist((Serializable) objectClass.newInstance(), instanceName);
+
 			return "Success when writing " + value + " in attribute " + attribute + " of instance " + instanceName;
 		} catch (Exception e) {
 			log(e.getMessage());

@@ -18,14 +18,13 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 		Object object = this.persistingHandler.get(instanceName);
 
 		try {
-		Class<?> objectClass = Class.forName(object.getClass().getName());
+			Class<?> objectClass = Class.forName(object.getClass().getName());
 
-		Class[] parametersTypes = new Class[parameters.length];
+			Class[] parametersTypes = new Class[parameters.length];
 
-		for (int i = 0; i < parameters.length; i++) {
-			parametersTypes[i] = parameters[i].getClass();
-		}
-
+			for (int i = 0; i < parameters.length; i++) {
+				parametersTypes[i] = parameters[i].getClass();
+			}
 
 			Method objectMethod = objectClass.getMethod(methodName, parametersTypes);
 			Object result = objectMethod.invoke(object, parameters);
@@ -39,21 +38,21 @@ public class MethodCallHandler extends ActionHandler implements MethodCallHandle
 
 	@Override
 	public Object[] formatParameters(List<Object> objects) {
-		if(objects.size() <= 3) {
+		if (objects.size() <= 3) {
 			return null;
 		}
 		String params = (String) objects.get(3);
 		String[] paramsSplit = params.split(",");
 		Object[] output = new Object[paramsSplit.length];
-		for(int i = 0 ; i < paramsSplit.length ; i++) {
-			if(paramsSplit[i].indexOf(':') != -1) {
+		for (int i = 0; i < paramsSplit.length; i++) {
+			if (paramsSplit[i].indexOf(':') != -1) {
 				String[] paramSplit = paramsSplit[i].split(":");
-				if(paramSplit[0].equals("float")) {
+				if (paramSplit[0].equals("float")) {
 					output[i] = Float.valueOf(paramSplit[1]);
 				}
 			}
-			if(paramsSplit[i].indexOf('(') != -1 && paramsSplit[i].indexOf(')') != -1) {
-				String name = paramsSplit[i].substring(paramsSplit[i].indexOf('(')+1, paramsSplit[i].indexOf(')'));
+			if (paramsSplit[i].indexOf('(') != -1 && paramsSplit[i].indexOf(')') != -1) {
+				String name = paramsSplit[i].substring(paramsSplit[i].indexOf('(') + 1, paramsSplit[i].indexOf(')'));
 				output[i] = this.persistingHandler.get(name);
 			}
 		}
